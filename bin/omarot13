@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# ROT13 the selected text and put the result on the clipboard.
+#
+# Usage: omarot13 [--selection | --clipboard]
+#   (default)    primary selection, falling back to the clipboard when empty
+#   --selection  primary selection only
+#   --clipboard  clipboard only
+
+set -o pipefail
+
+read_selection() { wl-paste --primary --no-newline 2>/dev/null; }
+
+read_clipboard() {
+  wl-paste --list-types 2>/dev/null | grep -q '^text/' || return 1
+  wl-paste --no-newline 2>/dev/null
+}
+
+case ${1:-} in
+  --selection) text=$(read_selection) ;;
+  --clipboard) text=$(read_clipboard) ;;
+  "") text=$(read_selection); [[ -n $text ]] || text=$(read_clipboard) ;;
+  -h | --help) sed -n '3,8s/^# \{0,1\}//p' "$0"; exit 0 ;;
+  *) echo "omarot13: unknown option '$1'" >&2; exit 2 ;;
+esac
+
+if [[ -z $text ]]; then
+  notify-send -a ROT13 -u low "ROT13" "No selected text or clipboard text"
+  exit 1
+fi
+
+# tr works on bytes under C: only ASCII letters rotate, UTF-8 passes through
+rotated=$(printf '%s' "$text" | LC_ALL=C tr 'A-Za-z' 'N-ZA-Mn-za-m')
+printf '%s' "$rotated" | wl-copy
+
+preview=${rotated:0:120}
+[[ ${#rotated} -gt 120 ]] && preview+="…"
+notify-send -a ROT13 -u low -t 2500 "ROT13 copied" "$preview"

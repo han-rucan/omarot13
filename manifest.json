@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "han.omarot13",
+  "name": "ROT13",
+  "version": "0.1.0",
+  "author": "han",
+  "license": "MIT",
+  "description": "ROT13 the selected text (or the clipboard) from a bar click or a keybinding.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "ROT13",
+    "description": "Click to ROT13 the selected text (falls back to the clipboard) and copy the result.",
+    "category": "Utilities",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "label": "R13"
+    },
+    "schema": [
+      {
+        "key": "label",
+        "type": "string",
+        "label": "Label"
+      }
+    ]
+  }
+}
