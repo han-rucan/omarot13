@@ -9,7 +9,7 @@ import qs.Ui
 // click rotates the clipboard. The result lands on the clipboard either way.
 BarWidget {
   id: root
-  moduleName: "han.omarot13"
+  moduleName: "io.github.han-rucan.omarot13"
 
   readonly property string script: decodeURIComponent(String(Qt.resolvedUrl("bin/omarot13")).replace(/^file:\/\//, ""))
 

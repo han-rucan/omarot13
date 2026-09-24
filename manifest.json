@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "han.omarot13",
+  "id": "io.github.han-rucan.omarot13",
   "name": "ROT13",
   "version": "0.1.0",
-  "author": "han",
+  "author": "Antonio Ruccia",
   "license": "MIT",
   "description": "ROT13 the selected text (or the clipboard) from a bar click or a keybinding.",
   "kinds": [
@@ -28,5 +28,7 @@
         "label": "Label"
       }
     ]
-  }
+  },
+  "homepage": "https://github.com/han-rucan/omarot13",
+  "repository": "https://github.com/han-rucan/omarot13"
 }
