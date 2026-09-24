@@ -13,6 +13,21 @@ omarchy plugin add https://github.com/han-rucan/omarot13.git --enable
 
 Then add the keybindings below if you want them.
 
+## Requirements
+
+Omarchy 4.x. The script uses `wl-clipboard` (`wl-paste`, `wl-copy`),
+`libnotify` (`notify-send`) and coreutils `tr`, all standard on Omarchy.
+Nothing else is installed and no configuration is changed.
+
+## Remove
+
+```bash
+omarchy plugin remove io.github.han-rucan.omarot13
+```
+
+If you copied the keybindings, delete the ROT13 block from
+`~/.config/hypr/bindings.lua`.
+
 ## Development
 
 The shell hot-reloads plugins with `inotifywait -r`, which does not follow
