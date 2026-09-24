@@ -33,6 +33,4 @@ fi
 rotated=$(printf '%s' "$text" | LC_ALL=C tr 'A-Za-z' 'N-ZA-Mn-za-m')
 printf '%s' "$rotated" | wl-copy
 
-preview=${rotated:0:120}
-[[ ${#rotated} -gt 120 ]] && preview+="…"
-notify-send -a ROT13 -u low -t 2500 "ROT13 copied" "$preview"
+notify-send -a ROT13 -u low -t 2500 "ROT13 copied" "${#rotated} characters copied to clipboard"
