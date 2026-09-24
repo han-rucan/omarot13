@@ -19,13 +19,13 @@
     "allowMultiple": false,
     "defaultSection": "right",
     "defaults": {
-      "label": "R13"
+      "icon": "󰗹"
     },
     "schema": [
       {
-        "key": "label",
+        "key": "icon",
         "type": "string",
-        "label": "Label"
+        "label": "Icon"
       }
     ]
   },

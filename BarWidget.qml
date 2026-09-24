@@ -20,13 +20,13 @@ BarWidget {
   implicitWidth: button.implicitWidth
   implicitHeight: button.implicitHeight
 
-  WidgetButton {
+  // Default glyph is nf-md-incognito (U+F05F9): ROT13 disguises text rather
+  // than securing it.
+  BarIconButton {
     id: button
     anchors.fill: parent
     bar: root.bar
-    text: root.setting("label", "R13")
-    horizontalMargin: 8.75
-    verticalPadding: 8.75
+    text: root.setting("icon", "\udb81\uddf9")
     tooltipText: "ROT13 selection → clipboard (right click: clipboard)"
     onPressed: function(b) {
       root.rotate(b === Qt.RightButton ? "--clipboard" : "")

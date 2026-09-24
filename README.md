@@ -2,6 +2,8 @@
 
 Omarchy shell plugin (`io.github.han-rucan.omarot13`) that ROT13s text.
 
+![ROT13 in the Omarchy bar](preview.png)
+
 - **Bar button**: left click rotates the selected text (falls back to the clipboard), right click rotates the clipboard. The result goes to the clipboard, with a notification.
 - **Script**: `bin/omarot13 [--selection | --clipboard]`, usable from anywhere.
 
@@ -41,6 +43,10 @@ omarchy-shell shell rescanPlugins
 omarchy plugin enable io.github.han-rucan.omarot13
 omarchy plugin validate .
 ```
+
+Saving a file triggers a reload, but Qt keeps serving the cached component
+while the old widget is alive, so QML changes may only show after
+`omarchy restart shell`.
 
 ## Keybindings
 
