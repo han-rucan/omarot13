@@ -27,7 +27,7 @@ BarWidget {
     anchors.fill: parent
     bar: root.bar
     text: root.setting("icon", "\udb81\uddf9")
-    tooltipText: "ROT13 selection → clipboard (right click: clipboard)"
+    tooltipText: "ROT13 → clipboard\nLeft click: selected text\nRight click: clipboard text"
     onPressed: function(b) {
       root.rotate(b === Qt.RightButton ? "--clipboard" : "")
     }
